@@ -1,0 +1,7 @@
+{
+    "captchas": [
+        { "image": "captcha1Pig.jpg", "answer": "свиня" },
+        { "image": "captcha2Tree.jpg", "answer": "дерево" },
+        { "image": "captcha3Grape.jpg", "answer": "виноград" }
+    ]
+}

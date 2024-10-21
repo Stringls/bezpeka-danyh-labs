@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Система Аутентифікації</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Система Аутентифікації</h1>
+        <div id="login">
+            <input type="text" id="username" placeholder="Ім'я користувача">
+            <input type="password" id="password" placeholder="Пароль">
+            <div id="captcha-container" style="position: relative; width: 100%; height: 300px;margin-bottom: 10px;"></div>            
+            <input type="text" id="captchaAnswer" placeholder="Введіть відповідь" required >
+            <button onclick="login()">Увійти</button>
+            <button onclick="showHelp()">Довідка</button>
+        <div id="helpMenu" style="display: none;">
+            <button onclick="showAbout()">Про програму</button>
+        </div>
+            <p id="message"></p>
+        </div>
+        <div id="admin-panel" style="display: none;">
+            <h2>Адміністратор</h2>
+            <button onclick= openChangePasswordModal()>Змінити пароль адміністратора</button>
+            <button onclick="viewUsers()">Переглянути користувачів</button>
+            <button onclick="addUser()">Додати користувача</button>
+            <button onclick="lockUser()">Блокувати користувача</button>
+            <button onclick="toggleRestrictions()">Змінити обмеження</button>
+            <button onclick="viewLogs()">Переглянути реєстраційни журнал</button>
+            <button onclick="viewActionLogs()">Переглянути операційний журнал</button>
+            <button onclick="logout()">Вийти</button>
+        </div>
+        <div id="user-panel" style="display: none;">
+            <h2>Користувач</h2>
+            <button onclick= openChangePasswordModal()>Змінити пароль</button>
+            <button onclick="logout()">Вийти</button>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Введіть старий пароль:</p>
+            <input type="password" id="oldPassword" placeholder="Старий пароль">
+            <p>Введіть новий пароль:</p>
+            <input type="password" id="newPassword" placeholder="Новий пароль">
+            <p>Підтвердіть новий пароль:</p>
+            <input type="password" id="confirmNewPassword" placeholder="Підтвердження пароля">
+            <button onclick="confirmChangePassword()">Підтвердити</button>
+        </div>
+    </div>
+    <div id="aboutModal" style="display: none;">
+        <div>
+            <h2>Про програму</h2>
+            <p>Автор: Садовський А</p>
+            <button onclick="closeAbout()">Закрити</button>
+        </div>
+    </div>
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeUserModal()">&times;</span>
+          <h2>Список користувачів</h2>
+          <table id="userList"></table>
+        </div>
+      </div>
+    <script src="app.js"></script>
+</body>
+</html>
